@@ -72,7 +72,10 @@ section {
   min-width: 35vh;
   border: 10px ridge #e93a3e;
   margin: 0.2em;
-
+}
+.menu {
+  text-decoration: none;
+  color: black;
 }
 .choix:hover {
   font-size: 1.2em;

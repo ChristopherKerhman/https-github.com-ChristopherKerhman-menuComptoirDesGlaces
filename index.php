@@ -2,7 +2,7 @@
 include 'header.php';
  ?>
 <section class="hub">
-  <div class="choix"><h3>Coupe Créateur</h3></div>
+  <a class="menu" href="#"><div class="choix"><h3>Coupe Créateur</h3></div></a>    
   <div class="choix"><h3>Coupes</h3></div>
   <div class="choix"><h3>Crêpes</h3></div>
   <div class="choix"><h3>Smoothies</h3></div>

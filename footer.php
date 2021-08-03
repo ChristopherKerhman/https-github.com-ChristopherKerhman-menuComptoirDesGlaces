@@ -1,5 +1,4 @@
 <?php
-require_once 'gestionDB/identifiantDB.php';
 $requetteSQL = "SELECT `adresse`, `phone`, `siret`, `ouvert` FROM `inc` WHERE 1";
 include 'gestionDB/readDB.php';
 $data->execute();

@@ -1,5 +1,6 @@
 <?php
 include 'restriction/session.php';
+require_once 'gestionDB/identifiantDB.php';
 $titre = 'Le menu du comptoir des glaces';
  ?>
 <!DOCTYPE html>
