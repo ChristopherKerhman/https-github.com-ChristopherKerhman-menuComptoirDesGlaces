@@ -42,6 +42,9 @@
     <button  class="choixCreateur" type="button" name="button" v-for="boule in sup" v-bind:key="boule" v-on:click="supplements(boule.nom)">{{boule.nom}}</button>
       </div>
     </div>
+    <button class="recCreateur" type="button" name="button" v-on:click="rec">Valider</button>
+    <button class="recCreateur" type="button" name="button" v-on:click="del">Vider</button>
+
   </section>
 </div>
 <!--Partie VueJS -->
@@ -57,6 +60,7 @@
             selectionSup: '',
             coupe: [],
             prix: 0,
+            indexation: [],
             selection: '',
             creme: <?php echo $creme; ?>,
             sorbet: <?php echo $sorbet; ?>,
@@ -74,6 +78,17 @@
           supplements (nom) {
             this.coupe.push(nom)
             this.prix +=1
+          },
+          rec () {
+            const KEY = Math.floor(Math.random() * (6000 - 1 + 1 )) + 1
+            this.coupe.push(this.prix)
+            sessionStorage.setItem(KEY, this.coupe)
+            location.reload()
+
+          },
+          del () {
+            sessionStorage.clear()
+            location.reload()
           }
         }
       })

@@ -133,6 +133,13 @@ section {
 .choixCreateur:checked {
   background-color: #fbd8e7;
 }
+.recCreateur {
+  background-color: #dff1ee;
+  margin: 0.2em;
+  border: 2px solid #e93a3e;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 2px;
+}
 /*==Menu aside navigation==*/
 .menuOnglet {
   margin-left: 1em;
