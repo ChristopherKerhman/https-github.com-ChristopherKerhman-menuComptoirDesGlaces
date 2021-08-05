@@ -1,11 +1,13 @@
 <?php
 $requetteSQL = "SELECT `adresse`, `phone`, `siret`, `ouvert` FROM `inc` WHERE 1";
-include 'gestionDB/readDB.php';
+include '../gestionDB/readDB.php';
 $data->execute();
   $data->setFetchMode(PDO::FETCH_ASSOC);
   $dataTraiter = $data->fetchAll();
  ?>
 <footer>
+<br />
+<a class="lienNav" href="../index.php">Retour</a>
 <h4>Le comptoir des glaces</h4>
 <ul class="ulFooter">
   <li class="liFooter">Adresse : <?php echo utf8_encode($dataTraiter[0]['adresse']); ?></li>
