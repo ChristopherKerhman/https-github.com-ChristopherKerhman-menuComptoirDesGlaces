@@ -73,6 +73,9 @@ section {
 #boule1 {
   height: 80%;
 }
+.liSansStyle {
+  list-style: none;
+}
 /*carrefour de choix*/
 .hub {
   padding-top: 1em;
