@@ -19,6 +19,7 @@
       $dataTraiter = $data->fetchAll();
       $sup = json_encode($dataTraiter);
  ?>
+  <h2>Créateur 1 boule</h2>
 <div id="boule1">
   <h4 class="center">Liste de votre coupe :
     <ul class="ulFooter">
@@ -37,7 +38,7 @@
       </div>
       <div>
         <h3>Sorbet</h3>
-    <button  class="choixCreateur" type="button" name="button" v-for="boule in sorbet" v-bind:key="boule" v-on:click="creationCreme(boule.nom)">{{boule.nom}}</button>
+    <button  class="choixCreateur" type="button" name="button" v-for="boule in sorbet" v-bind:key="boule" v-on:click="creationSorbet(boule.nom)">{{boule.nom}}</button>
       </div>
     </div>
     <div class="flexCol">
@@ -77,14 +78,21 @@
         }
         },
         methods: {
+          creationSorbet (nom) {
+            this.coupe.push('Sorbet '+nom)
+            if (this.coupe.length === 1) {
+              this.prix = 2.90
+          }
+        },
           creationCreme (nom) {
-            this.coupe.push(nom)
-            if (this.coupe.length = 1) {
+            this.coupe.push('Crème Glacée '+nom)
+            if (this.coupe.length === 1) {
               this.prix = 2.90
             }
           },
           supplements (nom) {
-            this.coupe.push(nom)
+
+            this.coupe.push('Supplément '+nom)
             this.prix +=1
           },
           rec () {
