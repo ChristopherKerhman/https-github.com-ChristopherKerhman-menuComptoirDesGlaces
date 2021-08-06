@@ -17,4 +17,5 @@ $sous_titre = 'Glacier, crêperie, Salon de thé';
   <h1><?php echo $titre; ?></h1>
   <h2><?php echo $sous_titre; ?></h2>
   <a class="lienNav" href="rubriques/commande.php">Votre panier</a>
+  <?php include 'composantVueJS/panier.php' ?>
 </header>

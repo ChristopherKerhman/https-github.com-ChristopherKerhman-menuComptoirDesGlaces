@@ -9,19 +9,20 @@ $data->execute();
   $cocktail = json_encode($dataTraiter);
  ?>
 <section>
-      <ul id="listeCocktails">
-          <h3>Coktails</h3>
-          <div id="COCKTAIL">
-            <li class="price" v-for="sansAlcool in cocktail" v-bind:key="sansAlcool"><button class="choixCreateur" type="button" name="button" v-on:click="rec(sansAlcool.nom, sansAlcool.prixUnitaire)">Commander</button>{{sansAlcool.nom}} {{sansAlcool.prixUnitaire}} €<br />
-            {{sansAlcool.composition}}
-            </li>
-          </div>
-      </ul>
-    <aside class="menuOnglet">
-    <?php
-    include '../affichages/menuOnglet.php';
-     ?>
-   </aside>
+<ul id="listeCocktails">
+    <h3>Coktails</h3>
+    <div id="COCKTAIL">
+      <li class="price" v-for="sansAlcool in cocktail" v-bind:key="sansAlcool"><button class="choixCreateur" type="button" name="button" v-on:click="rec(sansAlcool.nom, sansAlcool.prixUnitaire)">Commander</button><strong>{{sansAlcool.nom}}</strong>
+      {{sansAlcool.prixUnitaire}} €<br />
+      {{sansAlcool.composition}}
+      </li>
+    </div>
+</ul>
+<aside class="menuOnglet">
+<?php
+include '../affichages/menuOnglet.php';
+?>
+</aside>
    <script type="text/javascript">
      const COCKTAIL = Vue.createApp({
        data () {

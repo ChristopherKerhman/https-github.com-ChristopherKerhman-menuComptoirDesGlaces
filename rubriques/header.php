@@ -15,5 +15,5 @@ $titre = 'Le menu du comptoir des glaces';
 <header>
   <h1><?php echo $titre; ?></h1>
   <a class="lienNav" href="commande.php">Votre panier</a>
+  <?php include '../composantVueJS/panier.php' ?>
 </header>
-<?php include '../composantVueJS/panier.php' ?>
