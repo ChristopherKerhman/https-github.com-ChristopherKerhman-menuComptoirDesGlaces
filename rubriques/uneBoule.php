@@ -79,7 +79,6 @@
             }
           },
           supplements (nom) {
-
             this.coupe.push('Supplément '+nom)
             this.prix +=1
           },
