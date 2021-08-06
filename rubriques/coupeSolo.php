@@ -25,10 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <section>
   <ul>
     <?php
-
     $name = $dataTraiter[0]['nomComposition'];
+    //Permet d'encoder les ' des titres des glaces.
     $pattern = "/'/i";
     $name = preg_replace($pattern, "\'", $name);
+    // Fin
     $price = $dataTraiter[0]['prixComposition'];
     echo '<h3>'.$dataTraiter[0]['nomComposition'].' '.$dataTraiter[0]['prixComposition'].' €</h3><br />
     <img src="../compositionImages/'.$dataTraiter[0]['image'].'" alt="'.$dataTraiter[0]['nomComposition'].'"><br />';
@@ -56,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     methods: {
       rec (nom, prix) {
         prix = parseFloat(prix)
+        // 1 chances sur 10 millions de tombé sur une clé identique pour le panier.
         const KEY = Math.floor(Math.random() * (10000000 - 1 + 1 )) + 1
         sessionStorage.setItem(KEY,'Cocktail '+nom +' '+ prix)
         // Mise à jour du prix du panier
