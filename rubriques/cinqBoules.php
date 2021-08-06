@@ -19,18 +19,14 @@
       $dataTraiter = $data->fetchAll();
       $sup = json_encode($dataTraiter);
  ?>
-  <h2>Créateur 5 boules</h2>
+  <h2>Créateur 4 boules</h2>
 <div id="boule1">
   <h4 class="center">Liste de votre coupe :
     <ul class="ulFooter">
     <li class="liCoupe" v-for="compo in coupe" v-bind:key="compo">{{compo}}</li>
-    <li class="liCoupe">prix {{prix}} €</li>
+    <li class="liCoupe">prix de la coupe <strong>{{prix}}</strong> €</li>
   </ul></h4>
   <section id="selectionBoule">
-    <ul>
-      <li class="liSansStyle"><h4>Les coupes que vous avez enregistré :</h4></li>
-      <li class="liSansStyle" v-for="element in panier" v-bind:key="element">{{element}} €</li>
-    </ul>
     <div v-if="coupe.length < 5" class="flexRows">
       <div>
         <h3>Crème glacée</h3>
@@ -48,8 +44,6 @@
       </div>
     </div>
     <button class="recCreateur" type="button" name="button" v-on:click="rec">Valider</button>
-    <button class="recCreateur" type="button" name="button" v-on:click="del">Vider</button>
-
   </section>
 </div>
 <!--Partie VueJS -->
@@ -63,6 +57,7 @@
             coupe: [],
             prix: 0,
             panier: [],
+            total: 0,
             selection: '',
             creme: <?php echo $creme; ?>,
             sorbet: <?php echo $sorbet; ?>,
@@ -70,18 +65,11 @@
 
           }
         },
-        mounted () {
-          let sac
-          for (var i = 0; i < localStorage.length; i++) {
-           sac = localStorage.getItem(localStorage.key(i))
-           this.panier.push(sac)
-        }
-        },
         methods: {
           creationSorbet (nom) {
             this.coupe.push('Sorbet '+nom)
             if (this.coupe.length === 1) {
-              this.prix = 2.90
+              this.prix = 8.5
           }
         },
           creationCreme (nom) {
@@ -91,17 +79,22 @@
             }
           },
           supplements (nom) {
+
             this.coupe.push('Supplément '+nom)
             this.prix +=1
           },
           rec () {
             const KEY = Math.floor(Math.random() * (10000000 - 1 + 1 )) + 1
             this.coupe.push(this.prix)
-            localStorage.setItem(KEY, this.coupe)
-            location.reload()
-          },
-          del () {
-            localStorage.clear()
+            sessionStorage.setItem(KEY, this.coupe)
+            // Mise à jour du prix du panier
+            if (localStorage.getItem('prix') == null) {
+              localStorage.setItem('prix', this.prix)
+            } else {
+              this.total = parseInt(localStorage.getItem('prix'))
+              this.total = this.prix + this.total
+              localStorage.setItem('prix', this.total)
+            }
             location.reload()
           }
         }
