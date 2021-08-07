@@ -91,7 +91,7 @@
             if (localStorage.getItem('prix') == null) {
               localStorage.setItem('prix', this.prix)
             } else {
-              this.total = parseInt(localStorage.getItem('prix'))
+              this.total = parseFloat(localStorage.getItem('prix'))
               this.total = this.prix + this.total
               localStorage.setItem('prix', this.total)
             }

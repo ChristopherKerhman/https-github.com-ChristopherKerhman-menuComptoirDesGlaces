@@ -16,7 +16,9 @@ const PANIER = Vue.createApp(
     },
     mounted () {
       this.nbrArticle = sessionStorage.length
-      this.totalPanier = localStorage.getItem('prix')
+      this.totalPanier = parseFloat(localStorage.getItem('prix'))
+      this.totalPanier = this.totalPanier.toFixed(2)
+
     },
     methods: {
       del () {

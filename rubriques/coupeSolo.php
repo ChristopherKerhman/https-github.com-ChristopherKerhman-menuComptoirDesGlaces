@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (localStorage.getItem('prix') == null) {
           localStorage.setItem('prix', prix)
         } else {
-          let total = parseInt(localStorage.getItem('prix'))
+          let total = parseFloat(localStorage.getItem('prix'))
           total = prix + total
           localStorage.setItem('prix', total)
         }

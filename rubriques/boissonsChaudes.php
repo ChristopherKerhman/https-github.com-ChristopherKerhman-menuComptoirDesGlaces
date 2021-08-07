@@ -30,15 +30,15 @@ $data->execute();
     },
     methods: {
       rec (nom, prix) {
-        prix = parseFloat(prix)
+        let price = parseFloat(prix)
         const KEY = Math.floor(Math.random() * (10000000 - 1 + 1 )) + 1
-        sessionStorage.setItem(KEY, nom +' '+ prix)
+        sessionStorage.setItem(KEY, nom +' '+ price)
         // Mise à jour du prix du panier
         if (localStorage.getItem('prix') == null) {
-          localStorage.setItem('prix', prix)
+          localStorage.setItem('prix', price)
         } else {
-          let total = parseInt(localStorage.getItem('prix'))
-          total = prix + total
+          let total = parseFloat(localStorage.getItem('prix'))
+          total = price + total
           localStorage.setItem('prix', total)
         }
         location.reload()
