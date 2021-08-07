@@ -1,6 +1,6 @@
 <?php
   include 'header.php';
-  $requetteSQL = "SELECT `idProduits`, `nom` FROM `Produits` WHERE `idTypeProduit`= 29 AND `stock`= 1";
+$requetteSQL = "SELECT `idProduits`, `nom` FROM `Produits` WHERE `idTypeProduit`= 30 AND `stock`= 1";
   include '../gestionDB/readDB.php';
   $data->execute();
     $data->setFetchMode(PDO::FETCH_ASSOC);
@@ -10,7 +10,7 @@
 
 <div id="MilkShake">
   <section class="flexCol">
-  <h2>Créateur de Milkshakes - Prix : {{prix}} €</h2>
+  <h2>Créateur de Smoothie - Prix : {{prix}} €</h2>
     <ul class="ulFooter">
       <li class="liCoupe" v-for="compo in milkShake" v-bind:key="compo">{{compo}}</li>
     <li class="liCoupe" v-if="sup">Supplément chantilly</li>
@@ -21,6 +21,8 @@
   </div>
     <button v-if="!sup" class="choixCreateur" type="button" name="button" v-on:click="supplement(true)">Supplément chantilly 0.50 €</button>
     <button v-if="sup" class="choixCreateur" type="button" name="button" v-on:click="supplement(false)">Retirer le supplément chantilly</button>
+    <button v-if="!yogourt" class="choixCreateur" type="button" name="button" v-on:click="frozen(true)">Supplément frozen yogourt 1.50 €</button>
+    <button v-if="yogourt" class="choixCreateur" type="button" name="button" v-on:click="frozen(false)">Retirer le frozen yogourt</button>
     <div  class="flexrows">
       <h3>Crème glacée</h3>
         <button v-if="milkShake.length < 3" class="choixCreateur" type="button" name="button" v-for="boule in creme" v-bind:key="boule" v-on:click="creationCreme(boule.nom)">{{boule.nom}}</button>
@@ -37,7 +39,7 @@
         total:0,
         sup: false,
         yogourt: false,
-        milkShake: ['Milkshake'],
+        milkShake: ['Smoothie '],
         creme: <?php echo $creme; ?>
       }
   },
@@ -61,14 +63,27 @@
       this.prix = this.prix - 0.5
     }
   },
+  frozen (bifidus) {
+    if(bifidus) {
+      this.yogourt = true
+      this.prix = this.prix + 1.5
+    }
+    if(!bifidus) {
+      this.yogourt = false
+      this.prix = this.prix - 1.5
+    }
+  },
   creationCreme (nom) {
-    this.milkShake.push(' Crème Glacée '+nom)
+    this.milkShake.push(' Sorbet '+nom)
   },
   rec () {
     const KEY = Math.floor(Math.random() * (10000000 - 1 + 1 )) + 1
 
     if(this.sup){
       this.milkShake.push('Supplément chantilly')
+    }
+    if(this.yogourt){
+      this.milkShake.push('Supplément frozen yogourt')
     }
       this.milkShake.push(this.prix)
     sessionStorage.setItem(KEY, this.milkShake)
