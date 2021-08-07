@@ -95,8 +95,8 @@ section {
   font-size: 1.2em;
   background-color:#e93a3e;
   font-weight: bold;
-  min-height: 35vh;
-  min-width: 35vh;
+  min-height: 22vh;
+  min-width: 22vh;
   border: 10px outset #e92a2e;
   margin: 0.2em;
 }

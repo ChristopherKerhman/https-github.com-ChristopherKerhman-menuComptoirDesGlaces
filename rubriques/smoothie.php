@@ -24,7 +24,7 @@ $requetteSQL = "SELECT `idProduits`, `nom` FROM `Produits` WHERE `idTypeProduit`
     <button v-if="!yogourt" class="choixCreateur" type="button" name="button" v-on:click="frozen(true)">Supplément frozen yogourt 1.50 €</button>
     <button v-if="yogourt" class="choixCreateur" type="button" name="button" v-on:click="frozen(false)">Retirer le frozen yogourt</button>
     <div  class="flexrows">
-      <h3>Crème glacée</h3>
+      <h3>Choix de un ou deux Sorbets</h3>
         <button v-if="milkShake.length < 3" class="choixCreateur" type="button" name="button" v-for="boule in creme" v-bind:key="boule" v-on:click="creationCreme(boule.nom)">{{boule.nom}}</button>
     </div>
     <button v-if="milkShake.length >= 2 && valide" class="recCreateur" type="button" name="button" v-on:click="rec">Valider</button>

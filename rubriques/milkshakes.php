@@ -22,7 +22,7 @@
     <button v-if="!sup" class="choixCreateur" type="button" name="button" v-on:click="supplement(true)">Supplément chantilly 0.50 €</button>
     <button v-if="sup" class="choixCreateur" type="button" name="button" v-on:click="supplement(false)">Retirer le supplément chantilly</button>
     <div  class="flexrows">
-      <h3>Crème glacée</h3>
+      <h3>Choix de une ou deux crème glacée</h3>
         <button v-if="milkShake.length < 3" class="choixCreateur" type="button" name="button" v-for="boule in creme" v-bind:key="boule" v-on:click="creationCreme(boule.nom)">{{boule.nom}}</button>
     </div>
     <button v-if="milkShake.length >= 2 && valide" class="recCreateur" type="button" name="button" v-on:click="rec">Valider</button>
