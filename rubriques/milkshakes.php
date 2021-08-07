@@ -19,8 +19,8 @@
     <button class="choixCreateur" type="button" name="button" v-on:click="dimension(false)">Grand 5.90 €</button>
     <button class="choixCreateur" type="button" name="button" v-on:click="dimension(true)">petit 4.50 €</button>
   </div>
-    <button v-if="!sup" class="choixCreateur" type="button" name="button" v-on:click="supplement(true)">Supplément chantilly 0.50 €</button>
-    <button v-if="sup" class="choixCreateur" type="button" name="button" v-on:click="supplement(false)">Retirer le supplément chantilly</button>
+    <button v-if="!sup && prix > 0" class="choixCreateur" type="button" name="button" v-on:click="supplement(true)">Supplément chantilly 0.50 €</button>
+    <button v-if="sup && prix > 0" class="choixCreateur" type="button" name="button" v-on:click="supplement(false)">Retirer le supplément chantilly</button>
     <div  class="flexrows">
       <h3>Choix de une ou deux crème glacée</h3>
         <button v-if="milkShake.length < 3" class="choixCreateur" type="button" name="button" v-for="boule in creme" v-bind:key="boule" v-on:click="creationCreme(boule.nom)">{{boule.nom}}</button>

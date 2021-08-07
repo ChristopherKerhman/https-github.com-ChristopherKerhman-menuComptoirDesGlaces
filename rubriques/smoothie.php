@@ -19,10 +19,10 @@ $requetteSQL = "SELECT `idProduits`, `nom` FROM `Produits` WHERE `idTypeProduit`
     <button class="choixCreateur" type="button" name="button" v-on:click="dimension(false)">Grand 5.90 €</button>
     <button class="choixCreateur" type="button" name="button" v-on:click="dimension(true)">petit 4.50 €</button>
   </div>
-    <button v-if="!sup" class="choixCreateur" type="button" name="button" v-on:click="supplement(true)">Supplément chantilly 0.50 €</button>
-    <button v-if="sup" class="choixCreateur" type="button" name="button" v-on:click="supplement(false)">Retirer le supplément chantilly</button>
-    <button v-if="!yogourt" class="choixCreateur" type="button" name="button" v-on:click="frozen(true)">Supplément frozen yogourt 1.50 €</button>
-    <button v-if="yogourt" class="choixCreateur" type="button" name="button" v-on:click="frozen(false)">Retirer le frozen yogourt</button>
+    <button v-if="!sup && prix > 0" class="choixCreateur" type="button" name="button" v-on:click="supplement(true)">Supplément chantilly 0.50 €</button>
+    <button v-if="sup && prix > 0" class="choixCreateur" type="button" name="button" v-on:click="supplement(false)">Retirer le supplément chantilly</button>
+    <button v-if="!yogourt && prix > 0" class="choixCreateur" type="button" name="button" v-on:click="frozen(true)">Supplément frozen yogourt 1.50 €</button>
+    <button v-if="yogourt && prix > 0" class="choixCreateur" type="button" name="button" v-on:click="frozen(false)">Retirer le frozen yogourt</button>
     <div  class="flexrows">
       <h3>Choix de un ou deux Sorbets</h3>
         <button v-if="milkShake.length < 3" class="choixCreateur" type="button" name="button" v-for="boule in creme" v-bind:key="boule" v-on:click="creationCreme(boule.nom)">{{boule.nom}}</button>
