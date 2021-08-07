@@ -12,12 +12,12 @@
     $data->setFetchMode(PDO::FETCH_ASSOC);
     $dataTraiter = $data->fetchAll();
     $sorbet = json_encode($dataTraiter);
-    $requetteSQL = "SELECT `idProduits`, `nom` FROM `Produits` WHERE `idTypeProduit`= 33 AND `stock`= 1";
-    include '../gestionDB/readDB.php';
-    $data->execute();
-      $data->setFetchMode(PDO::FETCH_ASSOC);
-      $dataTraiter = $data->fetchAll();
-      $sup = json_encode($dataTraiter);
+  $requetteSQL = "SELECT `idProduits`, `nom` FROM `Produits` WHERE `idTypeProduit`= 33 AND `stock`= 1";
+  include '../gestionDB/readDB.php';
+  $data->execute();
+    $data->setFetchMode(PDO::FETCH_ASSOC);
+    $dataTraiter = $data->fetchAll();
+    $sup = json_encode($dataTraiter);
  ?>
   <h2>Créateur 1 boule</h2>
 <div id="boule1">

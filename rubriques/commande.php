@@ -24,7 +24,8 @@ const LISTE = Vue.createApp(
      sac = sessionStorage.getItem(sessionStorage.key(i))
      this.panier.push(sac)
    }
-   this.total = localStorage.getItem('prix')
+   this.total = parseFloat(localStorage.getItem('prix'))
+   this.total = this.total.toFixed(2)
   }
 })
 LISTE.mount('#LISTE');
