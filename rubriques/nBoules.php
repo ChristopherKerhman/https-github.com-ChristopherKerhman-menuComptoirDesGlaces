@@ -12,22 +12,24 @@
     $data->setFetchMode(PDO::FETCH_ASSOC);
     $dataTraiter = $data->fetchAll();
     $sorbet = json_encode($dataTraiter);
-    $requetteSQL = "SELECT `idProduits`, `nom` FROM `Produits` WHERE `idTypeProduit`= 33 AND `stock`= 1";
-    include '../gestionDB/readDB.php';
-    $data->execute();
-      $data->setFetchMode(PDO::FETCH_ASSOC);
-      $dataTraiter = $data->fetchAll();
-      $sup = json_encode($dataTraiter);
+  $requetteSQL = "SELECT `idProduits`, `nom` FROM `Produits` WHERE `idTypeProduit`= 33 AND `stock`= 1";
+  include '../gestionDB/readDB.php';
+  $data->execute();
+    $data->setFetchMode(PDO::FETCH_ASSOC);
+    $dataTraiter = $data->fetchAll();
+    $sup = json_encode($dataTraiter);
  ?>
-  <h2>Créateur 4 boules</h2>
+  <h2>Créateur de coupe</h2>
 <div id="boule1">
   <h4 class="center">Liste de votre coupe :
     <ul class="ulFooter">
     <li class="liCoupe" v-for="compo in coupe" v-bind:key="compo">{{compo}}</li>
-    <li class="liCoupe">prix de la coupe <strong>{{prix}}</strong> €</li>
-  </ul></h4>
+    <li class="liCoupe">prix de la coupe {{totalBoules}} boules <strong> {{prix}}</strong> €</li>
+  </ul>
+</h4>
   <section id="selectionBoule">
-    <div v-if="coupe.length < 5" class="flexRows">
+      <button class="choixCreateur" v-if="coupe.length === 0" type="button" name="button" v-for="choix in nBoules" v-bind:key="choix" v-on:click="choixNBoules(choix.nBoule)">{{choix.nBoule}} boules - {{choix.prix}} €</button>
+    <div v-if="coupe.length < totalBoules" class="flexRows">
       <div>
         <h3>Crème glacée</h3>
           <button class="choixCreateur" type="button" name="button" v-for="boule in creme" v-bind:key="boule" v-on:click="creationCreme(boule.nom)">{{boule.nom}}</button>
@@ -38,7 +40,7 @@
       </div>
     </div>
     <div class="flexCol">
-      <div>
+      <div v-if="coupe.length > 0">
         <h3>Supplément</h3>
     <button  class="choixCreateur" type="button" name="button" v-for="boule in sup" v-bind:key="boule" v-on:click="supplements(boule.nom)">{{boule.nom}}</button>
       </div>
@@ -54,6 +56,14 @@
       const boule1 = Vue.createApp({
         data () {
           return {
+            nBoules: [
+              {id: 1, nBoule: 1, prix: 2.90 },
+              {id: 2, nBoule: 2, prix: 4.30 },
+              {id: 3, nBoule: 3, prix: 5.60 },
+              {id: 4, nBoule: 4, prix: 7.00 },
+              {id: 5, nBoule: 5, prix: 8.50 }
+             ],
+             totalBoules: 0,
             coupe: [],
             prix: 0,
             panier: [],
@@ -66,20 +76,25 @@
           }
         },
         methods: {
+          choixNBoules (choixCreateur) {
+            this.totalBoules = choixCreateur
+            let param = this.nBoules[choixCreateur - 1]
+            this.prix = param['prix']
+            this.totalBoules = param['nBoule']
+          },
           creationSorbet (nom) {
             this.coupe.push('Sorbet '+nom)
             if (this.coupe.length === 1) {
-              this.prix = 8.5
+              this.prix = 2.90
           }
         },
           creationCreme (nom) {
             this.coupe.push('Crème Glacée '+nom)
             if (this.coupe.length === 1) {
-              this.prix = 8.5
+              this.prix = 2.90
             }
           },
           supplements (nom) {
-
             this.coupe.push('Supplément '+nom)
             this.prix +=1
           },
