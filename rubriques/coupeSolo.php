@@ -23,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
  ?>
 <section>
-  <ul>
+<article class="">
+  <ul class="conteneurListePrix">
     <?php
     $name = $dataTraiter[0]['nomComposition'];
     //Permet d'encoder les ' des titres des glaces.
@@ -41,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <li><button class="choixCreateur" type="button" name="button" v-on:click="rec(nomCoupe, prixUnitaire)">Commander {{nomCoupe}} {{prixUnitaire}} €</button></li>
 </div>
     </ul>
+</article>
   <aside class="menuOnglet">
   <?php
   include '../affichages/menuOnglet.php';

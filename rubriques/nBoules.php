@@ -19,15 +19,16 @@
     $dataTraiter = $data->fetchAll();
     $sup = json_encode($dataTraiter);
  ?>
-  <h2>Créateur de coupe</h2>
-<div id="boule1">
+  <h3>Créateur de coupe</h3>
+<section>
+<div id="boule1" >
   <h4 class="center">Liste de votre coupe :
     <ul class="ulFooter">
     <li class="liCoupe" v-for="compo in coupe" v-bind:key="compo">{{compo}}</li>
     <li class="liCoupe">prix de la coupe {{totalBoules}} boules <strong> {{prix}}</strong> €</li>
   </ul>
 </h4>
-  <section id="selectionBoule">
+  <article id="selectionBoule">
       <button class="choixCreateur" v-if="coupe.length === 0" type="button" name="button" v-for="choix in nBoules" v-bind:key="choix" v-on:click="choixNBoules(choix.nBoule)">{{choix.nBoule}} boules - {{choix.prix}} €</button>
     <div v-if="coupe.length < totalBoules" class="flexRows">
       <div>
@@ -44,11 +45,13 @@
         <h3>Supplément</h3>
     <button  class="choixCreateur" type="button" name="button" v-for="boule in sup" v-bind:key="boule" v-on:click="supplements(boule.nom)">{{boule.nom}}</button>
       </div>
+      <div class="center">
+        <button v-if="coupe.length >= totalBoules && choixCoupe" class="recCreateur" type="button" name="button" v-on:click="rec">Valider</button>
+      </div>
     </div>
-    <button class="recCreateur" type="button" name="button" v-on:click="rec">Valider</button>
-  </section>
+  </article>
 </div>
-<!--Partie VueJS -->
+</section>
  <?php
  include 'footer.php';
   ?>
@@ -63,7 +66,8 @@
               {id: 4, nBoule: 4, prix: 7.00 },
               {id: 5, nBoule: 5, prix: 8.50 }
              ],
-             totalBoules: 0,
+            totalBoules: 0,
+            choixCoupe: false,
             coupe: [],
             prix: 0,
             panier: [],
@@ -81,6 +85,7 @@
             let param = this.nBoules[choixCreateur - 1]
             this.prix = param['prix']
             this.totalBoules = param['nBoule']
+            this.choixCoupe = true
           },
           creationSorbet (nom) {
             this.coupe.push('Sorbet '+nom)

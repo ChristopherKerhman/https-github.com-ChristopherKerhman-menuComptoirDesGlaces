@@ -7,14 +7,15 @@
     $dataTraiter = $data->fetchAll();
     $creme = json_encode($dataTraiter);
  ?>
-
-<div id="MilkShake">
-  <section class="flexCol">
-  <h2>Créateur de Milkshakes - Prix : {{prix}} €</h2>
+<section>
+<div id="MilkShake" class="size50">
+<article>
+    <h4 class="center">Créateur de Milkshakes - Prix : {{prix}} €
     <ul class="ulFooter">
       <li class="liCoupe" v-for="compo in milkShake" v-bind:key="compo">{{compo}}</li>
     <li class="liCoupe" v-if="sup">Supplément chantilly</li>
   </ul>
+</h4>
   <div v-if="prix ==  0">
     <button class="choixCreateur" type="button" name="button" v-on:click="dimension(false)">Grand 5.90 €</button>
     <button class="choixCreateur" type="button" name="button" v-on:click="dimension(true)">petit 4.50 €</button>
@@ -25,9 +26,15 @@
       <h3>Choix de une ou deux crème glacée</h3>
         <button v-if="milkShake.length < 3" class="choixCreateur" type="button" name="button" v-for="boule in creme" v-bind:key="boule" v-on:click="creationCreme(boule.nom)">{{boule.nom}}</button>
     </div>
-    <button v-if="milkShake.length >= 2 && valide" class="recCreateur" type="button" name="button" v-on:click="rec">Valider</button>
-  </section>
+    <div class="center">
+      <button v-if="milkShake.length >= 2 && valide" class="recCreateur" type="button" name="button" v-on:click="rec">Valider</button>    
+    </div>
+  </article>
 </div>
+</section>
+<?php
+include 'footer.php';
+ ?>
 <script type="text/javascript">
   const MilkShake = Vue.createApp({
   data () {
@@ -86,6 +93,3 @@
 })
   MilkShake.mount('#MilkShake')
 </script>
-<?php
-include 'footer.php';
- ?>

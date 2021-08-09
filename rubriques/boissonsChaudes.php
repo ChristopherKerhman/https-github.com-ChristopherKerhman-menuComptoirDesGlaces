@@ -9,12 +9,14 @@ $data->execute();
   $hot = json_encode($dataTraiter);
  ?>
 <section>
-  <ul class="conteneurListePrix">
-    <h3>Boissons chaudes</h3>
-    <div id="HOT">
-      <li class="price" v-for="chaudes in hot" v-bind:key="chaudes"><button class="choixCreateur" type="button" name="button" v-on:click="rec(chaudes.nom, chaudes.prixUnitaire)">Commander</button>{{chaudes.nom}} {{chaudes.prixUnitaire}} €</li>
-    </div>
-  </ul>
+  <article>
+    <ul class="conteneurListePrix">
+      <h3>Boissons chaudes</h3>
+      <div id="HOT">
+        <li class="price" v-for="chaudes in hot" v-bind:key="chaudes"><button class="choixCreateur" type="button" name="button" v-on:click="rec(chaudes.nom, chaudes.prixUnitaire)">Commander</button>{{chaudes.nom}} {{chaudes.prixUnitaire}} €</li>
+      </div>
+    </ul>
+  </article>
 <aside class="menuOnglet"></li>
     <?php
     include '../affichages/menuOnglet.php';

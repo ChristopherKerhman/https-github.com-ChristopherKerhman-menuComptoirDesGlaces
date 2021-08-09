@@ -7,7 +7,8 @@ $data->execute();
   $dataTraiter = $data->fetchAll();
  ?>
 <section>
-<ul>
+  <article>
+<ul class="conteneurListePrix">
   <h3>Les coupes</h3>
 
 <?php
@@ -23,6 +24,12 @@ foreach ($dataTraiter as $key) {
 }
  ?>
 </ul>
+</article>
+<aside class="menuOnglet">
+<?php
+include '../affichages/menuOnglet.php';
+?>
+</aside>
 </section>
 <?php
 include 'footer.php';
