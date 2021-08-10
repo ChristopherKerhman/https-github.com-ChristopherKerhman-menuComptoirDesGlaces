@@ -252,14 +252,14 @@ label {
 }
 @media only screen and (max-width: 680px) {
   body {
-    font-size: 0.9em;
+    font-size: 3em;
   }
   .ulFooter {
     flex-direction: column;
-    font-size: 0.7em;
+    font-size: 1.5em;
   }
   .liFooter {
-    margin: 0.1em;
+    margin: 1.5em;
   }
   section {
     width: 98%;
@@ -274,5 +274,8 @@ label {
   }
   .conteneurListePrix {
     width: 100%;
+  }
+  .choixCreateur {
+    font-size: 2em;
   }
 }

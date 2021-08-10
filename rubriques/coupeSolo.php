@@ -10,8 +10,8 @@ function filter($data) {
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $id = filter($_POST['idC']);
-  $requetteSQL = "SELECT `recette`.`nombre`,`composition`.`image`, `composition`.`nomComposition`, `composition`.`prixComposition`, `Produits`.`nom`  FROM `composition` INNER JOIN `recette` INNER JOIN `Produits` WHERE `composition`.`idComposition` = `recette`.`idCompositionRecette`
-  AND `recette`.`idProduitRecette` = `Produits`.`idProduits` AND `Produits`.`stock`= 1 AND `composition`.`idComposition` = :idC";
+  //$requetteSQL = "SELECT `recette`.`nombre`,`composition`.`image`, `composition`.`nomComposition`, `composition`.`prixComposition`, `Produits`.`nom`  FROM `composition` INNER JOIN `recette` INNER JOIN `Produits` WHERE `composition`.`idComposition` = `recette`.`idCompositionRecette` AND `recette`.`idProduitRecette` = `Produits`.`idProduits` AND `Produits`.`stock`= 1 AND `composition`.`idComposition` = :idC";
+  $requetteSQL = "SELECT `recette`.`nombre`,`composition`.`image`, `composition`.`nomComposition`, `composition`.`prixComposition`, `Produits`.`nom`, `type` FROM `composition` INNER JOIN `recette` INNER JOIN `Produits` INNER JOIN `typePorduits` WHERE `composition`.`idComposition` = `recette`.`idCompositionRecette` AND `recette`.`idProduitRecette` = `Produits`.`idProduits` AND `Produits`.`stock`= 1 AND `typePorduits`.`idTypeProduits` = `Produits`.`idTypeProduit` AND `composition`.`idComposition` = :id";
   include '../gestionDB/readDB.php';
   $data->bindParam(':idC', $id);
   $data->execute();
