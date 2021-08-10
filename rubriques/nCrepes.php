@@ -25,8 +25,9 @@
   <h4 class="center">Liste des éléments de votre crêpes :
     <ul class="ulFooter">
     <li class="liCoupe" v-for="compo in coupe" v-bind:key="compo">{{compo}}</li>
-    <li class="liCoupe">Prix de la crêpe <strong> {{prix.toFixed(2)}}</strong> €</li>
+    <li class="liCoupe">Prix de la crêpe <strong> {{prix.toFixed(2)}} €</strong></li>
   </ul>
+    <strong v-if="coupe.length > 1" v-on:click="supprimer(compo)">Supprimer la crêpe ?</strong>
 </h4>
   <article id="selectionBoule">
     <div class="flexRows">
@@ -45,7 +46,7 @@
     <button  class="choixCreateur" type="button" name="button" v-for="boule in sup" v-bind:key="boule" v-on:click="supplements(boule.nom)">{{boule.nom}}</button>
       </div>
       <div class="center">
-        <button v-if="coupe.length >= 1" class="recCreateur" type="button" name="button" v-on:click="rec">Valider</button>
+        <button v-if="coupe.length >= 1" class="recCreateur" type="button" name="button" v-on:click="rec">Ajouter</button>
       </div>
     </div>
   </article>
@@ -71,6 +72,9 @@
           }
         },
         methods: {
+          supprimer () {
+            location.reload(true)
+        },
           creationSorbet (nom) {
             this.coupe.push('Sorbet '+nom)
               this.prix += 2.3

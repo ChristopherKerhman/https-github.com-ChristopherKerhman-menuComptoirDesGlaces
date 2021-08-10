@@ -5,7 +5,7 @@ include 'header.php';
 <div id="LISTE">
   <ul v-if="panier.length > 0">
     <li v-for="article in panier" v-bind:key="article">{{article}} €</li>
-    <li>Total : {{total}} €</li>
+    <li id="total">Total panier : {{total}} €</li>
   </ul>
 
 </div>
@@ -26,7 +26,8 @@ const LISTE = Vue.createApp(
    }
    this.total = parseFloat(localStorage.getItem('prix'))
    this.total = this.total.toFixed(2)
-  }
+ }
+
 })
 LISTE.mount('#LISTE');
 </script>

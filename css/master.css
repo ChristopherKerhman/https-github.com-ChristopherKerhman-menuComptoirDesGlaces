@@ -41,6 +41,12 @@ article {
   min-width: 50%;
   align-self: center;
 }
+ul {
+  list-style: none;
+}
+#total {
+  margin-top: 2em;
+}
 .center {
   text-align: center;
 }

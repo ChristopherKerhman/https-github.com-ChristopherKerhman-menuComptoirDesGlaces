@@ -25,8 +25,9 @@
   <h4 class="center">Liste de votre coupe :
     <ul class="ulFooter">
     <li class="liCoupe" v-for="compo in coupe" v-bind:key="compo">{{compo}}</li>
-    <li class="liCoupe">prix de la coupe {{totalBoules}} boules <strong> {{prix}}</strong> €</li>
+    <li class="liCoupe">prix de la coupe {{totalBoules}} boules <strong> {{prix}} €</strong></li>
   </ul>
+  <strong v-if="coupe.length > 0" v-on:click="supprimer(compo)">Supprimer la coupe ?</strong>
 </h4>
   <article id="selectionBoule">
       <button class="choixCreateur" v-if="coupe.length === 0" type="button" name="button" v-for="choix in nBoules" v-bind:key="choix" v-on:click="choixNBoules(choix.nBoule)">{{choix.nBoule}} boules - {{choix.prix}} €</button>
@@ -46,7 +47,7 @@
     <button  class="choixCreateur" type="button" name="button" v-for="boule in sup" v-bind:key="boule" v-on:click="supplements(boule.nom)">{{boule.nom}}</button>
       </div>
       <div class="center">
-        <button v-if="coupe.length >= totalBoules && choixCoupe" class="recCreateur" type="button" name="button" v-on:click="rec">Valider</button>
+        <button v-if="coupe.length >= totalBoules && choixCoupe" class="recCreateur" type="button" name="button" v-on:click="rec">Ajouter</button>
       </div>
     </div>
   </article>
@@ -80,6 +81,9 @@
           }
         },
         methods: {
+          supprimer () {
+            location.reload(true)
+          },
           choixNBoules (choixCreateur) {
             this.totalBoules = choixCreateur
             let param = this.nBoules[choixCreateur - 1]

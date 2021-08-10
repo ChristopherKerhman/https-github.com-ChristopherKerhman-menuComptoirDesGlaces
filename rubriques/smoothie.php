@@ -10,11 +10,12 @@ $requetteSQL = "SELECT `idProduits`, `nom` FROM `Produits` WHERE `idTypeProduit`
 <section>
 <div id="MilkShake" class="size50">
   <article>
-<h4 class="center">Créateur de Smoothie - Prix : {{prix}} €
+<h4 class="center">Créateur de Smoothie - <strong>Prix : {{prix}} €</strong>
     <ul class="ulFooter">
       <li class="liCoupe" v-for="compo in milkShake" v-bind:key="compo">{{compo}}</li>
     <li class="liCoupe" v-if="sup">Supplément chantilly</li>
   </ul>
+  <strong v-if="milkShake.length > 1" v-on:click="supprimer(compo)">Supprimer le milkshake ?</strong>
   </h4>
   <div v-if="prix ==  0">
     <button class="choixCreateur" type="button" name="button" v-on:click="dimension(false)">Grand 5.90 €</button>
@@ -24,13 +25,13 @@ $requetteSQL = "SELECT `idProduits`, `nom` FROM `Produits` WHERE `idTypeProduit`
     <button v-if="sup && prix > 0" class="choixCreateur" type="button" name="button" v-on:click="supplement(false)">Retirer le supplément chantilly</button>
     <button v-if="!yogourt && prix > 0" class="choixCreateur" type="button" name="button" v-on:click="frozen(true)">Supplément frozen yogourt 1.50 €</button>
     <button v-if="yogourt && prix > 0" class="choixCreateur" type="button" name="button" v-on:click="frozen(false)">Retirer le frozen yogourt</button>
-    <div  class="flexrows">
+    <div  class="flexrows" v-if="milkShake.length < 3" >
       <h3>Choix de un ou deux Sorbets</h3>
-        <button v-if="milkShake.length < 3" class="choixCreateur" type="button" name="button" v-for="boule in creme" v-bind:key="boule" v-on:click="creationCreme(boule.nom)">{{boule.nom}}</button>
-  <div class="center">
-    <button v-if="milkShake.length >= 2 && valide" class="recCreateur" type="button" name="button" v-on:click="rec">Valider</button>
-    </div>
+        <button class="choixCreateur" type="button" name="button" v-for="boule in creme" v-bind:key="boule" v-on:click="creationCreme(boule.nom)">{{boule.nom}}</button>
   </div>
+  <div class="center">
+    <button v-if="milkShake.length >=2 && valide" class="recCreateur" type="button" name="button" v-on:click="rec">Ajouter</button>
+    </div>
 </article>
 </div>
 </section>
@@ -48,6 +49,9 @@ $requetteSQL = "SELECT `idProduits`, `nom` FROM `Produits` WHERE `idTypeProduit`
       }
   },
   methods: {
+  supprimer () {
+      location.reload(true)
+    },
   dimension (volume) {
     this.valide = true
     if(volume) {
