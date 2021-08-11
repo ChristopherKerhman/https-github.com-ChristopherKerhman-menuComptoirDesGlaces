@@ -10,13 +10,12 @@ $requetteSQL = "SELECT `idProduits`, `nom` FROM `Produits` WHERE `idTypeProduit`
 <section>
 <div id="MilkShake" class="size50">
   <article>
-<h4 class="center">Créateur de Smoothie - <strong>Prix : {{prix}} €</strong>
+<h4 class="center">Créateur de Smoothie - <strong>Prix : {{prix}} €</strong></h4>
     <ul class="ulFooter">
       <li class="liCoupe" v-for="compo in milkShake" v-bind:key="compo">{{compo}}</li>
     <li class="liCoupe" v-if="sup">Supplément chantilly</li>
   </ul>
   <strong v-if="milkShake.length > 1" v-on:click="supprimer(compo)">Supprimer le milkshake ?</strong>
-  </h4>
   <div v-if="prix ==  0">
     <button class="choixCreateur" type="button" name="button" v-on:click="dimension(false)">Grand 5.90 €</button>
     <button class="choixCreateur" type="button" name="button" v-on:click="dimension(true)">petit 4.50 €</button>

@@ -22,13 +22,13 @@
   <h3>Créateur de crêpes sucré</h3>
 <section>
 <div id="boule1" >
-  <h4 class="center">Liste des éléments de votre crêpes :
+  <h4 class="center">Liste des éléments de votre crêpes :</h4>
     <ul class="ulFooter">
     <li class="liCoupe" v-for="compo in coupe" v-bind:key="compo">{{compo}}</li>
     <li class="liCoupe">Prix de la crêpe <strong> {{prix.toFixed(2)}} €</strong></li>
   </ul>
     <strong v-if="coupe.length > 1" v-on:click="supprimer(compo)">Supprimer la crêpe ?</strong>
-</h4>
+
   <article id="selectionBoule">
     <div class="flexRows">
       <div>

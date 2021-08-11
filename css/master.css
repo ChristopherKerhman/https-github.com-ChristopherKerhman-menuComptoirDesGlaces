@@ -37,6 +37,9 @@ h4 {
   font-weight: 500;
   font-family: 'Montserrat', sans-serif;
 }
+strong {
+  text-align: center;
+}
 article {
   min-width: 50%;
   align-self: center;
@@ -85,6 +88,12 @@ section {
 }
 .size50 {
     height: 50%;
+}
+.sizeInpute {
+  margin: 0.5em;
+  padding: 0.5em 1em;
+  border: 1px solid black;
+  border-radius: 0.5em;
 }
 .liSansStyle {
   list-style: none;

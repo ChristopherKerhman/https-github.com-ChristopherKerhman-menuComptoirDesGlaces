@@ -16,6 +16,26 @@ $sous_titre = 'Glacier, crêperie, Salon de thé';
 <header>
   <h1><?php echo $titre; ?></h1>
   <h2><?php echo $sous_titre; ?></h2>
-  <a class="lienNav" href="rubriques/commande.php">Votre panier</a>
-  <?php include 'composantVueJS/panier.php' ?>
+  <a class="lienNav" href="rubriques/commande.php">Votre panier</a><br />
+  <div id="info">
+    <p>Nombre d'article enregistré : {{nbrArticle}} - Total {{totalPanier}} €</p>
+  </div>
+<script type="text/javascript">
+  const info = Vue.createApp({
+    data () {
+      return {
+        nbrArticle: 0,
+        totalPanier: 0
+      }
+    },
+    mounted () {
+    this.nbrArticle = sessionStorage.length
+    this.totalPanier = parseFloat(localStorage.getItem('prix'))
+    this.totalPanier = this.totalPanier.toFixed(2)
+    }
+
+  })
+  info.mount('#info')
+
+</script>
 </header>

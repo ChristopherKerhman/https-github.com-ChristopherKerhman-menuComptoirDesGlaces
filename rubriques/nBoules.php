@@ -22,13 +22,12 @@
   <h3>Créateur de coupe</h3>
 <section>
 <div id="boule1" >
-  <h4 class="center">Liste de votre coupe :
+  <h4 class="center">Liste de votre coupe :</h4>
     <ul class="ulFooter">
     <li class="liCoupe" v-for="compo in coupe" v-bind:key="compo">{{compo}}</li>
     <li class="liCoupe">prix de la coupe {{totalBoules}} boules <strong> {{prix}} €</strong></li>
   </ul>
   <strong v-if="coupe.length > 0" v-on:click="supprimer(compo)">Supprimer la coupe ?</strong>
-</h4>
   <article id="selectionBoule">
       <button class="choixCreateur" v-if="coupe.length === 0" type="button" name="button" v-for="choix in nBoules" v-bind:key="choix" v-on:click="choixNBoules(choix.nBoule)">{{choix.nBoule}} boules - {{choix.prix}} €</button>
     <div v-if="coupe.length < totalBoules" class="flexRows">

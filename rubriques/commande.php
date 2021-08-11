@@ -7,7 +7,6 @@ include 'header.php';
     <li v-for="article in panier" v-bind:key="article">{{article}} €</li>
     <li id="total">Total panier : {{total}} €</li>
   </ul>
-
 </div>
 <script type="text/javascript">
 const LISTE = Vue.createApp(
