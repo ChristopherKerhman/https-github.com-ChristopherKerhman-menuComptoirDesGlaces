@@ -56,9 +56,11 @@ include 'footer.php';
     this.valide = true
     if(volume) {
       this.prix = 4.5
+      this.milkShake.push('Taille = Petit')
     }
     if(!volume){
       this.prix = 5.9
+      this.milkShake.push('Taille = Grand')
     }
   },
   supplement (chan) {

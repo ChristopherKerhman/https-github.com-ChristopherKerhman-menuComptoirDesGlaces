@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <article class="">
   <ul class="conteneurListePrix">
     <?php
+
     $name = $dataTraiter[0]['nomComposition'];
     //Permet d'encoder les ' des titres des glaces.
     $pattern = "/'/i";
@@ -60,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         prix = parseFloat(prix)
         // 1 chances sur 10 millions de tombé sur une clé identique pour le panier.
         const KEY = Math.floor(Math.random() * (10000000 - 1 + 1 )) + 1
-        sessionStorage.setItem(KEY,'Cocktail '+nom +' '+ prix)
+        sessionStorage.setItem(KEY,'Coupe Menus '+nom +' '+ prix)
         // Mise à jour du prix du panier
         if (localStorage.getItem('prix') == null) {
           localStorage.setItem('prix', prix)

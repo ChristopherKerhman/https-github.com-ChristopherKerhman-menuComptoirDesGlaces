@@ -9,40 +9,62 @@ Couleur ponctuation vert pastel : #dff1ee
 body {
     background-color: #fcdeeb;
     width: 100%;
+    height: 100%;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-header {
+/*header {
   text-align: center;
   padding-bottom: 2em;
-
+}*/
+header {
+  width: 96%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 footer {
+  margin-top: 2em;
   text-align: center;
+  font-size: 1.5em;
+  height: auto;
+  width: auto;
 }
 h1 {
-  font-size: 2em;
-  font-weight: 700;
+
+  background-color: rgba(255,255,255,0.8);
+  font-size: 3.5em;
+  font-weight: initial;
   font-family: 'Montserrat', sans-serif;
+  padding: 0.3em;
+}
+h2 {
+  background-color: rgba(255,255,255,0.8);
+  font-size: 1.5em;
+  font-weight: initial;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0.3em;
+
 }
 h3 {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 2em;
   font-family: 'Montserrat', sans-serif;
 }
 h4 {
-  font-weight: 500;
+  font-weight: 300;
+  font-size: 1.5em;
   font-family: 'Montserrat', sans-serif;
 }
 strong {
   text-align: center;
 }
 article {
-  min-width: 50%;
   align-self: center;
+  width: auto;
 }
 ul {
   list-style: none;
@@ -70,10 +92,11 @@ ul {
 }
 section {
   width: 90%;
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-bottom: 1em;
-  margin-bottom: 2em;
+  padding-top: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
   background-color: white;
   display: flex;
   justify-content: space-evenly;
@@ -86,6 +109,15 @@ section {
 #boule1 {
   height: 50%;
 }
+  #PANIER {
+    width: 100%;
+    font-size: 1em;
+  }
+  #LISTE {
+    width: 100%;
+    font-size: 1em;
+    text-align: center;
+  }
 .size50 {
     height: 50%;
 }
@@ -100,19 +132,18 @@ section {
 }
 /*carrefour de choix*/
 .hub {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding: 0.5em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
 }
 .choix {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2em;
+  font-weight: normal;
   background-color:#e93a3e;
   font-weight: bold;
   min-height: 22vh;
@@ -125,11 +156,8 @@ section {
   color: black;
 }
 .choix:hover {
-  font-size: 1.2em;
-  -webkit-box-shadow: 0px 0px 8px 0px #F53B3B;
-  box-shadow: 0px 0px 8px 0px #F53B3B;
-    border: 10px solid #e92a2e;
-    border-radius: 50%;
+    border: 10px outset #e92a2e;
+  border-radius: 20px;
 }
 .lienNav {
   width: 200%;
@@ -158,6 +186,8 @@ button {
   padding-bottom: 0.2em;
   border: 1px solid #fbd8e7;
   font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1em;
   border-radius: 5px;
 }
 .choixCreateur:focus {
@@ -168,9 +198,14 @@ button {
 }
 .recCreateur {
   background-color: #dff1ee;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   margin: 0.2em;
   border: 2px solid #e93a3e;
   font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   border-radius: 4px;
 }
 /*==Menu aside navigation==*/
@@ -202,7 +237,7 @@ button {
   text-align: justify;
 }
 #listeCocktails {
-  width: 70%;
+  width: 90%;
   list-style: none;
   text-align: justify;
 }
@@ -232,21 +267,44 @@ label {
   border: 1px solid black;
   border-radius: 0.5em;
 }
+.fondBlanc {
+  background-color: rgba(255,255,255,0.94);
+  display: flex;
+  flex-direction: column;
+}
 /*==Responsivité==*/
 @media only screen and (max-width: 980px) {
   body {
     font-size: 1em;
+    background-image: url('../compositionImages/rueHorlogeH2000.png');
+    background-position: initial;
+    background-repeat: no-repeat;
+  }
+  footer {
+      background-color: rgba(255,255,255,0.95);
+  }
+  label {
+    font-size: 1.8em;
+  }
+  .sizeInpute {
+    font-size: 1.8em;
+  }
+  .recCreateur {
+    font-size: 1.8em;
+  }
+  .lienNav {
+    font-size: 1.8em;
+
   }
   .ulFooter {
     flex-direction: column;
-    font-size: 0.8em;
+    font-size: 1em;
   }
   .liFooter {
     margin: 0.3em;
   }
   section {
-    width: 90%;
-    background-color: white;
+    font-size: 1.25em;
   }
   .menuOnglet {
     width: 50%;
@@ -254,43 +312,83 @@ label {
   .hub {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-
-      flex-direction: rows;
+    flex-direction: rows;
   }
   .choix {
-    min-height: 20vh;
-    min-width: 20vh;
+    min-height: 13vh;
+    min-width: 23vh;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 0.2em;
   }
   .conteneurListePrix {
     width: 100%;
   }
+  .choixCreateur {
+    font-size: 1.2em;
+  }
+  #PANIER {
+    font-size: 1.4em;
+    background-color: RGB(251, 216, 224);
+  }
+  #LISTE {
+    font-size: 1.4em;
+    background-color: RGB(251, 216, 224);
+  }
 }
 @media only screen and (max-width: 680px) {
   body {
-    font-size: 3em;
+    font-size: 1em;
+    background-image: url('../compositionImages/rueHorlogeH2000.png');
+    background-position: initial;
+    background-repeat: no-repeat;
+  }
+  footer {
+      background-color: rgba(255,255,255,0.94);
+  }
+  label {
+    font-size: 1.8em;
+  }
+  .sizeInpute {
+    font-size: 1.8em;
+  }
+  .recCreateur {
+    font-size: 1.8em;
+  }
+  #PANIER {
+    font-size: 1.4em;
+    background-color: RGB(251, 216, 224);
+  }
+  #LISTE {
+    font-size: 1.4em;
+    background-color: RGB(251, 216, 224);
+  }
+  .lienNav {
+    font-size: 1.8em;
   }
   .ulFooter {
     flex-direction: column;
-    font-size: 1.5em;
+    font-size: 1em;
+    background-color: rgba(255,255,255,0.5);
   }
   .liFooter {
     margin: 1.5em;
   }
   section {
-    width: 98%;
+    font-size: 1.25em;
   }
   .hub {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
       flex-direction: rows;
   }  .choix {
-    min-height: 20vh;
-    min-width: 20vh;
+    min-height: 13vh;
+    min-width: 23vh;
   }
   .conteneurListePrix {
     width: 100%;
   }
   .choixCreateur {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 }

@@ -15,13 +15,8 @@ $data->execute();
          <div id="COLD">
            <li class="price" v-for="froides in cold" v-bind:key="froides"><button class="choixCreateur" type="button" name="button" v-on:click="rec(froides.nom, froides.prixUnitaire)">Commander</button>{{froides.nom}} {{froides.prixUnitaire}} €</li>
          </div>
-     </ul> 
+     </ul>
    </article>
-         <aside class="menuOnglet">
-     <?php
-     include '../affichages/menuOnglet.php';
-      ?>
-    </aside>
     <script type="text/javascript">
     const COLD = Vue.createApp({
       data () {

@@ -17,11 +17,6 @@ $data->execute();
       </div>
     </ul>
   </article>
-<aside class="menuOnglet"></li>
-    <?php
-    include '../affichages/menuOnglet.php';
-     ?>
-   </aside>
 </section>
 <script type="text/javascript">
   const HOT = Vue.createApp({

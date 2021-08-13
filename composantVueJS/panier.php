@@ -3,7 +3,7 @@
     <p>Nombre d'article enregistré : {{nbrArticle}} - Total {{totalPanier}} €</p>
       <button class="recCreateur" type="button" name="button" v-on:click="del">Vider panier</button>
       <button v-if="!valide" class="recCreateur" type="button" name="button" v-on:click="valide = true">Valider le panier ?</button>
-      <form v-if="valide" class="" action="../formulaires/record/recordCommande.php" method="post">
+      <form class="fondBlanc" v-if="valide" class="" action="../formulaires/record/recordCommande.php" method="post">
         <label for="tok">Token de commande</label>
         <input class="sizeInpute" type="text" name="tokenCommande" placeholder="Votre token de commande ?">
         <label for="number">Numéro de commande</label>

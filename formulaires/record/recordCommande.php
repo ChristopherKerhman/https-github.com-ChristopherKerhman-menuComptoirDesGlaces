@@ -13,6 +13,9 @@ include '../../gestionDB/readDB.php';
 $data->execute();
 $data->setFetchMode(PDO::FETCH_ASSOC);
 $dataToken = $data->fetchAll();
+if(empty($dataToken)) {
+    header('location:../../index.php');
+}
 foreach ($dataToken as $key) {
   if ($key['tokenCommande'] == $token) {
     $requetteSQL = "UPDATE `commandesClients` SET `totalPanier`=:totalPanier,`nbrArticle`=:nbrArticle,`panier`=:panier, `valide`= 2 WHERE `id` = :id";
