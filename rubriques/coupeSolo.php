@@ -37,8 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach ($dataTraiter as $key) {
       echo $key['nombre'].' '.$key['nom'].', ';
     }
+
      ?>
-<div id="COUPEMENU">
+    <div id="COUPEMENU">
   <li><button class="choixCreateur" type="button" name="button" v-on:click="rec(nomCoupe, prixUnitaire)">Commander {{nomCoupe}} {{prixUnitaire}} €</button></li>
 </div>
     </ul>

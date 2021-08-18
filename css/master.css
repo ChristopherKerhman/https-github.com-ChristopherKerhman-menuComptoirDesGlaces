@@ -34,7 +34,6 @@ footer {
   width: auto;
 }
 h1 {
-
   background-color: rgba(255,255,255,0.8);
   font-size: 3.5em;
   font-weight: initial;
@@ -96,10 +95,14 @@ section {
   padding-left: 1em;
   padding-right: 1em;
   padding-bottom: 0.5em;
+  margin-top: 1.2em;
   margin-bottom: 1em;
   background-color: white;
   display: flex;
   justify-content: space-evenly;
+}
+.Zmoins {
+  margin-top: 0.9em;
 }
 #selectionBoule {
   display: inline-flex;
@@ -208,6 +211,37 @@ button {
   font-weight: 700;
   border-radius: 4px;
 }
+/*==Conteneur Coupes & crêpes==*/
+.conteneurWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.boxBlack {
+  display: flex;
+  align-content: stretch;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+  text-align: center;
+  width: 20em;
+  min-height: 5em;
+  background-color: black;
+  border: 2px black solid;
+  border-radius: 0px 15px 0px 40px;
+}
+.boxBlack:hover {
+  background-color: #1e1e1e;
+}
+.lienInterne {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  font-weight: 800;
+  color: white;
+}
+
 /*==Menu aside navigation==*/
 .menuOnglet {
   margin-left: 1em;
@@ -257,6 +291,7 @@ button {
   display: flex;
   flex-direction: row;
 }
+
 /*==Input et formulaires ==*/
 label {
   text-align: center;
